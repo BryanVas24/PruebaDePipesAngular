@@ -7,7 +7,10 @@
         <p>{{ currentDate | date : "short" }}</p>
       </div>
     </header>
-    <p>New York: {{ currentTemperaturs.newYork | temperature : "cel" }}</p>
+    <p>
+      New York:
+      {{ currentTemperaturs.newYork | temperature : "cel" }}
+    </p>
     <p>Berlin: {{ currentTemperaturs.berlin | temperature : "fah" }}</p>
     <p>Paris: {{ currentTemperaturs.paris | temperature : "fah" : "cel" }}</p>
     <p>Chicago: {{ currentTemperaturs.chicago | number : "1.1-2" }}</p>
@@ -23,7 +26,8 @@
     </header>
     <ul>
       @for (temperature of historicTemperatures; track temperature) {
-      <li (click)="onReset($index)">{{ temperature }}</li>
+      <!--Un temperature es el nombre de la pipe pero no me habia fijado que ya habia algo con ese nombre XD-->
+      <li (click)="onReset($index)">{{ temperature | temperature : "fah" }}</li>
       }
     </ul>
   </article>
